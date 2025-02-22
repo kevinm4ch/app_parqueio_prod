@@ -8,15 +8,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', [PatioController::class, 'getPatios'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [PatioController::class, 'getPatios'])->name('dashboard');
 
-Route::get('/patio/{patio_id}', [PatioController::class, 'getPatio'])->middleware(['auth', 'verified'])->name('patio');
+Route::get('/patio/{patio_id}', [PatioController::class, 'getPatio'])->name('patio');
 
-Route::post('/patio/{patio_id}', [PatioController::class, 'gerarTicket'])->middleware(['auth', 'verified'])->name('gerar');
+Route::post('/patio/{patio_id}', [PatioController::class, 'gerarTicket'])->name('gerar');
 
-Route::get('/pay', [PatioController::class, 'getTicket'])->middleware(['auth', 'verified'])->name('ticket');
+Route::get('/pay', [PatioController::class, 'getTicket'])->name('ticket');
 
-Route::post('/pay', [PatioController::class, 'getTicket'])->middleware(['auth', 'verified'])->name('pay');
+Route::post('/pay', [PatioController::class, 'getTicket'])->name('pay');
 
 Route::get('/debug', function () {
     return phpinfo();
