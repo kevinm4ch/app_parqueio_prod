@@ -18,6 +18,9 @@ Route::get('/pay', [PatioController::class, 'getTicket'])->middleware(['auth', '
 
 Route::post('/pay', [PatioController::class, 'getTicket'])->middleware(['auth', 'verified'])->name('pay');
 
+Route::get('/debug', function () {
+    return phpinfo();
+});
 
 
 
